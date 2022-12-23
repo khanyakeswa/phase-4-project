@@ -4,7 +4,7 @@ ResumeProject.destroy_all
 Project.destroy_all
 
 puts "🌱 Seeding users..."
-User.create!([
+User.create([
     {
         name: "Nathan Foss",
         username: "DosLlamas",
@@ -26,14 +26,14 @@ User.create!([
 ])
 
 puts "🌱 Seeding resumes..."
-Resume.create!([
+Resume.create([
     {
         title: "Full Stack Engineer",
         about: "Nathan is adept and career driven in Backend Design. His ability to effectively communicate and in technical documentation is due to his background in the Pharmaceutical Industry, where he worked with large collaborative teams, achieving organizational goals for patients, nurses and doctors’ needs.",
         user_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
         user_logo: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
         education: "Flatiron School",
-        skill: "Software Engineering",
+        skills: "Software Engineering",
         experience: "Full-Stack Development with a React frontend and a Rails backend"
     },
     {
@@ -42,7 +42,7 @@ Resume.create!([
         user_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
         user_logo: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
         education: "Flatiron School",
-        skill: "Software Engineering",
+        skills: "Software Engineering",
         experience: "Full-Stack Development with a React frontend and a Rails backend"
     },
     {
@@ -51,17 +51,18 @@ Resume.create!([
         user_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
         user_logo: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
         education: "Flatiron School",
-        skill: "Software Engineering",
+        skills: "Software Engineering",
         experience: "Full-Stack Development with a React frontend and a Rails backend"
     }
 ])
 
+
 puts "🌱 Adding resumes to projects..."
-ResumeProject.create!(resume_id: 1, project_id: 1, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
-ResumeProject.create!(resume_id: 3, project_id: 3, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
+ResumeProject.create(resume_id: 1, project_id: 1, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
+ResumeProject.create(resume_id: 3, project_id: 3, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
 
 puts "🌱 Seeding projects..."
-Project.create!([
+Project.create([
     {
         name: "NASA Image Search",
         collaborators: "Nathan Foss, Leah Cardoz, Calvin Jimenez",
