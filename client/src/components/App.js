@@ -24,7 +24,6 @@ function App() {
           res.json()
             .then((user) => {
               updateUser(user);
-              fetchProductions()
             });
         }
       })
@@ -69,17 +68,17 @@ function App() {
           </form>
         </div>
       </nav>
-      {!currentUser ? <Login error={'Please Login'} updateUser={updateUser} /> :
+      {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
-          <Route path="/signup" element={<SignupPage updateUser={updateUser}/>} />
+          <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/resume-view" element={<ResumeViewer />} />
           <Route path="/projects" element={<ProjectBrowser />} />
           <Route path="/profiles" element={<ProfileBrowser />} />
         </Routes>
-      }
+      {/* } */}
     </div>
   );
 }
