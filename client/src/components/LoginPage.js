@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage = ({updateUser}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -28,6 +28,7 @@ const LoginPage = () => {
             .then(res => {
                 if (res.ok) {
                     res.json().then(user => {
+                        updateUser(user)
                         navigate(`/users/${user.id}`)
                     })
                 } else {
