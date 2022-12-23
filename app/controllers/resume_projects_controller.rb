@@ -1,0 +1,2 @@
+class ResumeProjectsController < ApplicationController
+end

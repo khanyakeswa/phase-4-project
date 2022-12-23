@@ -1,4 +1,5 @@
 import '../css/App.css';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Routes, Route } from "react-router-dom";
 
 import LandingPage from './LandingPage';
@@ -13,13 +14,31 @@ import UserDashboard from './UserDashboard';
 function App() {
   let activeNavClass = 'nav active';
 
+  const [errors, setErrors] = useState(false)
+  const [currentUser, setCurrentUser] = useState(false)
+
+  useEffect(() => {
+    fetch("/authorized_user")
+      .then((res) => {
+        if (res.ok) {
+          res.json()
+            .then((user) => {
+              updateUser(user);
+            });
+        }
+      })
+  }, [])
+
+  const updateUser = (user) => setCurrentUser(user)
+
+  if (errors) return <h1>{errors}</h1>
   return (
     <div>
       {/* <h2>🏠 Home | Projects | Resumes | Professionals | Search | 👤 Account</h2> */}
       <nav>
         <div className='navlink-button'>
           <NavLink to={'/'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-           🏠 Home
+            🏠 Home
           </NavLink>
         </div>
         <div className='navlink-button'>
@@ -39,24 +58,27 @@ function App() {
         </div>
         <div className='navlink-button'>
           <NavLink to={'/profiles'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-          👤 Profiles
+            👤 Profiles
           </NavLink>
         </div>
         <div id="search-bar-wrapper">
           <form>
             <input type="text" placeholder="Search" id="search-bar" />
+            <input type="submit" value="Search" />
           </form>
         </div>
       </nav>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/dashboard" element={<UserDashboard />} />
-        <Route path="/resume-view" element={<ResumeViewer />} />
-        <Route path="/projects" element={<ProjectBrowser />} />
-        <Route path="/profiles" element={<ProfileBrowser />} />
-      </Routes>
+      {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
+          <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/resume-view" element={<ResumeViewer />} />
+          <Route path="/projects" element={<ProjectBrowser />} />
+          <Route path="/profiles" element={<ProfileBrowser />} />
+        </Routes>
+      {/* } */}
     </div>
   );
 }
