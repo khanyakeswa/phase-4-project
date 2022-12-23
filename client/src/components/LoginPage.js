@@ -40,6 +40,9 @@ const LoginPage = ({updateUser}) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
     }
+    const clickHandler = (e) =>{
+        navigate('/signup')
+    }
 
     return (
         <div>
@@ -48,14 +51,22 @@ const LoginPage = ({updateUser}) => {
                 <label>
                     Username
                 </label>
-                <input type='text' name='name' value={name} onChange={changeHandler} />
+                <input type='text' placeholder="Username" name='name' value={name} onChange={changeHandler} />
+                <br /> <br />
                 <label>
                     Password
                 </label>
-                <input type='password' name='password' value={password} onChange={changeHandler} />
+            
+                <input type='password' placeholder="Password" name='password' value={password} onChange={changeHandler} />
+                <br />
+
                 <input type='submit' value='Log In' />
             </form>
             {errors ? <div>{errors}</div> : null}
+            <br />
+            <h3>or</h3>
+            <br />
+            <button onClick={clickHandler}>Signup with ResuME</button>
         </div>
     )
 }

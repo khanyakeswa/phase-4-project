@@ -79,9 +79,9 @@ p3 = Project.create(
 )
 
 puts "🌱 Adding resumes to projects..."
+
 rp1 = ResumeProject.create(resume_id: r1.id, project_id: p1.id, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
 rp2 = ResumeProject.create(resume_id: r3.id, project_id: p3.id, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
-
 
 puts "🌱 Done seeding!"
 
