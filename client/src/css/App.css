@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +40,85 @@
     transform: rotate(360deg);
   }
 }
+
+/* Global Classes */
+
+/* Nav Bar */
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+#user-search-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+#user-menu-container,
+#search-bar-container {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  transition: all .25s;
+}
+
+#search-bar-container form {
+  /* opacity: 0; */
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  /* transform: translateX(-75px); */
+  right: 75px;
+  height: 35px;
+}
+
+#search-input {
+  background: none;
+  border: none;
+  text-indent: 5px;
+}
+
+#search-submit {
+  border: none;
+  padding: 5px 15px;
+  user-select: none;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all .25s;
+}
+#search-submit:hover {
+  background-color: #61dafb;
+}
+
+.navlink-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+}
+
+.navlink-button {
+  width: 100px;
+  height: 50px;
+  background-color: #61dafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Landing Page */
+
+/* Login Page */
