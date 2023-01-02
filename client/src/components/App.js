@@ -1,6 +1,6 @@
 import '../css/App.css';
 import React, { useEffect, useState } from 'react';
-import { NavLink, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import LandingPage from './LandingPage';
 import LoginPage from './LoginPage';
@@ -9,10 +9,9 @@ import ProjectBrowser from './ProjectBrowser';
 import ResumeViewer from './ResumeViewer';
 import SignupPage from './SignupPage';
 import UserDashboard from './UserDashboard';
-
+import Nav from './Nav';
 
 function App() {
-  let activeNavClass = 'nav active';
 
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState(false)
@@ -34,50 +33,17 @@ function App() {
   if (errors) return <h1>{errors}</h1>
   return (
     <div>
-      {/* <h2>🏠 Home | Projects | Resumes | Professionals | Search | 👤 Account</h2> */}
-      <nav>
-        <div className='navlink-button'>
-          <NavLink to={'/'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-            🏠 Home
-          </NavLink>
-        </div>
-        <div className='navlink-button'>
-          <NavLink to={'/login'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-            Log In
-          </NavLink>
-        </div>
-        <div className='navlink-button'>
-          <NavLink to={'/projects'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-            Browse Projects
-          </NavLink>
-        </div>
-        <div className='navlink-button'>
-          <NavLink to={'/resume-view'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-            Resumes
-          </NavLink>
-        </div>
-        <div className='navlink-button'>
-          <NavLink to={'/profiles'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-            👤 Profiles
-          </NavLink>
-        </div>
-        <div id="search-bar-wrapper">
-          <form>
-            <input type="text" placeholder="Search" id="search-bar" />
-            <input type="submit" value="Search" />
-          </form>
-        </div>
-      </nav>
+      <Nav currentUser={currentUser} updateUser={updateUser}/>
       {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
-          <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
-          <Route path="/dashboard" element={<UserDashboard />} />
-          <Route path="/resume-view" element={<ResumeViewer />} />
-          <Route path="/projects" element={<ProjectBrowser />} />
-          <Route path="/profiles" element={<ProfileBrowser />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
+        <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
+        <Route path="/dashboard" element={<UserDashboard currentUser={currentUser}/>} />
+        <Route path="/resume-view" element={<ResumeViewer />} />
+        <Route path="/projects" element={<ProjectBrowser />} />
+        <Route path="/profiles" element={<ProfileBrowser />} />
+      </Routes>
       {/* } */}
     </div>
   );
