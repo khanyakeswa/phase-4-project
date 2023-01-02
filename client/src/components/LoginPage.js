@@ -6,17 +6,16 @@ const LoginPage = ({updateUser}) => {
     const location = useLocation();
 
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
+        username: '',
         password: ''
     })
     const [errors, setErrors] = useState([])
-    const { name, password } = formData
+    const { username, password } = formData
 
     function submitHandler(e) {
         e.preventDefault()
         const user = {
-            name,
+            username,
             password
         }
 
@@ -32,7 +31,7 @@ const LoginPage = ({updateUser}) => {
                         navigate(`/users/${user.id}`)
                     })
                 } else {
-                    res.json().then(json => setErrors(Object.entries(json.errors)))
+                    res.json().then(json => setErrors(json.errors))
                 }
             })
     }
@@ -51,7 +50,7 @@ const LoginPage = ({updateUser}) => {
                 <label>
                     Username
                 </label>
-                <input type='text' placeholder="Username" name='name' value={name} onChange={changeHandler} />
+                <input type='text' placeholder="Username" name='username' value={username} onChange={changeHandler} />
                 <br /> <br />
                 <label>
                     Password
