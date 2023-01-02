@@ -42,6 +42,9 @@ body {
 }
 
 /* Global Classes */
+/* .button-1 {
+  height: 50px;
+} */
 
 /* Nav Bar */
 
@@ -51,13 +54,69 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 60px;
+}
+/* user-menu-container */
+.menu-link{
+  text-align: center;
+  user-select: none;
+  padding: 0px 20px;
+  background-color: rgba(255, 255, 255, 1);
+  font-weight: 100;
+  font-family: sans-serif;
+  font-size: 15px;
+  transition: all .25s;
   height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.menu-link:hover {
+  font-weight: 200;
+  color: #fff;
+  background-color: rgba(255, 98, 0, 1);
+}
+.active {
+  display: flex;
+  flex-direction: column;
+}
+.inactive {
+  display: none;
+}
+.user-menu-picture-wrapper {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75px;
+  height: auto;
+}
+.profile-pic-1 {
+  clip-path: circle(20px at center);
+  width: 50px;
+  height: 50px;
+}
+
+.user-menu-picture-wrapper svg {
+  width: 15px;
+  padding: 0px 12.5px;
+  height: auto;
 }
 
 #user-search-wrapper {
   display: flex;
   flex-direction: row;
   height: 100%;
+}
+
+#user-menu {
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1)  ; 
+	-webkit-box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1)  ; 
+	-moz-box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1)  ; 
 }
 
 #user-menu-container,
@@ -67,7 +126,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 75px;
   transition: all .25s;
 }
 
