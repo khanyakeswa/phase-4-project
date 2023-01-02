@@ -57,6 +57,7 @@ nav {
   height: 60px;
 }
 /* user-menu-container */
+
 .menu-link{
   text-align: center;
   user-select: none;
@@ -70,11 +71,24 @@ nav {
   display: flex;
   align-items: center;
   cursor: pointer;
+  fill: rgba(255, 98, 0, 1);
+
 }
+
 .menu-link:hover {
   font-weight: 200;
   color: #fff;
   background-color: rgba(255, 98, 0, 1);
+  fill: white;
+}
+.notification-dashboard{
+  width: 30px;
+  padding: 0px 12.5px;
+  height: auto;
+  position: relative;
+  /* top: -25px; */
+  z-index: 1;
+  right: -10px;
 }
 .active {
   display: flex;
@@ -83,6 +97,7 @@ nav {
 .inactive {
   display: none;
 }
+
 .user-menu-picture-wrapper {
   position: absolute;
   top: 0;
@@ -98,11 +113,31 @@ nav {
   height: 50px;
 }
 
-.user-menu-picture-wrapper svg {
+/* .user-menu-picture-wrapper svg {
   width: 15px;
   padding: 0px 12.5px;
   height: auto;
+  position: relative;
+  top: -25px;
+} */
+.down-arrow{
+  width: 15px;
+  padding: 0px 12.5px;
+  height: auto;
+  position: relative;
+  top: -25px;
 }
+.notification{
+  width: 24px;
+  padding: 0px 12.5px;
+  height: auto;
+  position: relative;
+  top: -17px;
+  z-index: 1;
+  right: -15px;
+  fill: rgba(255, 98, 0, 1);
+}
+
 
 #user-search-wrapper {
   display: flex;

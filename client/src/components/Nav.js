@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import UserMenu from "./UserMenu";
 
-const Nav = ({ currentUser, updateUser }) => {
+const Nav = ({ currentUser, updateUser, setSearchText }) => {
     let activeNavClass = 'nav active';
 
     return (
@@ -35,7 +35,7 @@ const Nav = ({ currentUser, updateUser }) => {
                     </NavLink>
                 </div>
             </div>
-            <UserMenu currentUser={currentUser} updateUser={updateUser} />
+            <UserMenu setSearchText={setSearchText} currentUser={currentUser} updateUser={updateUser} />
         </nav>
     )
 }

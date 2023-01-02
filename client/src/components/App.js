@@ -29,11 +29,13 @@ function App() {
   }, [])
 
   const updateUser = (user) => setCurrentUser(user)
+  const [searchText, setSearchText] = useState('')
+  // console.log(searchText)
 
   if (errors) return <h1>{errors}</h1>
   return (
     <div>
-      <Nav currentUser={currentUser} updateUser={updateUser}/>
+      <Nav setSearchText={setSearchText} currentUser={currentUser} updateUser={updateUser}/>
       {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
