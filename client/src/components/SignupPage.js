@@ -34,8 +34,7 @@ const SignupPage = ({ updateUser }) => {
             .then(res => {
                 if (res.ok) {
                     res.json().then(user => {
-                        updateUser(user)
-                        navigate(`/users/${user.id}`)
+                        navigate(`/login`)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
