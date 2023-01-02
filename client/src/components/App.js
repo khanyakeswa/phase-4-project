@@ -44,7 +44,7 @@ function App() {
         <Route path="/dashboard" element={<UserDashboard currentUser={currentUser}/>} />
         <Route path="/resume-view" element={<ResumeViewer />} />
         <Route path="/projects" element={<ProjectBrowser />} />
-        <Route path="/profiles" element={<ProfileBrowser />} />
+        <Route path="/profiles" element={<ProfileBrowser searchResult={searchText} />} />
       </Routes>
       {/* } */}
     </div>

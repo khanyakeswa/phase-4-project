@@ -1,7 +1,7 @@
 import React from'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const ProfileBrowser = () => {
+const ProfileBrowser = ({searchResult}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
