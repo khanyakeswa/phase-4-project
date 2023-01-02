@@ -30,7 +30,7 @@ function App() {
 
   const updateUser = (user) => setCurrentUser(user)
   const [searchText, setSearchText] = useState('')
-  // console.log(searchText)
+  console.log(searchText)
 
   if (errors) return <h1>{errors}</h1>
   return (

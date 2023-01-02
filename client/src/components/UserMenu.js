@@ -26,16 +26,20 @@ const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
   };
 
   //toggle dropdownmenu for profile picture click
+
+  const [searchValue, setSearchValue] = useState('')
+
   const [isActive, setActive] = useState(false);
   const handleShowMenu = (e) => {
     setActive(!isActive);
   };
   function handleChange(e) {
-    setSearchText(e.target.value);
+    setSearchValue(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    setSearchText(searchValue)
     navigate("/profiles");
   }
 
@@ -43,7 +47,7 @@ const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
     <div id="user-search-wrapper">
       <div id="search-bar-container">
         <form onSubmit={handleSubmit} >
-          <input id="search-input" onChange={handleChange} type="text" placeholder="Search" />
+          <input id="search-input" onChange={handleChange} value={searchValue} type="text" placeholder="Search" />
           <input id="search-submit" type="submit" value="Search" />
         </form>
       </div>

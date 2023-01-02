@@ -5,7 +5,6 @@ const SearchResults = ({searchResult}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    
     return (
         <div>
             <h1>{location.pathname}</h1>
