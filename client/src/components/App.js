@@ -29,11 +29,13 @@ function App() {
   }, [])
 
   const updateUser = (user) => setCurrentUser(user)
+  const [searchText, setSearchText] = useState('')
+  console.log(searchText)
 
   if (errors) return <h1>{errors}</h1>
   return (
     <div className='App' style={{backgroundImage: "url(/background-01.jpg)"}}>
-      <Nav currentUser={currentUser} updateUser={updateUser}/>
+      <Nav setSearchText={setSearchText} currentUser={currentUser} updateUser={updateUser}/>
       {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -42,7 +44,7 @@ function App() {
         <Route path="/dashboard" element={<UserDashboard user={currentUser}/>} />
         <Route path="/resume-view" element={<ResumeViewer />} />
         <Route path="/projects" element={<ProjectBrowser />} />
-        <Route path="/profiles" element={<ProfileBrowser />} />
+        <Route path="/profiles" element={<ProfileBrowser searchResult={searchText} />} />
       </Routes>
       {/* } */}
     </div>
