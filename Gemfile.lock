@@ -173,6 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
+  activestorage
   bcrypt (~> 3.1.7)
   byebug
   listen (~> 3.3)

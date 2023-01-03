@@ -32,14 +32,14 @@ function App() {
 
   if (errors) return <h1>{errors}</h1>
   return (
-    <div>
+    <div className='App' style={{backgroundImage: "url(/background-01.jpg)"}}>
       <Nav currentUser={currentUser} updateUser={updateUser}/>
       {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
-        <Route path="/dashboard" element={<UserDashboard currentUser={currentUser}/>} />
+        <Route path="/dashboard" element={<UserDashboard user={currentUser}/>} />
         <Route path="/resume-view" element={<ResumeViewer />} />
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser />} />
