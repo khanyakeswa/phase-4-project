@@ -35,6 +35,9 @@ const Nav = ({ currentUser, updateUser }) => {
                     </NavLink>
                 </div>
             </div>
+            <div id="logo-wrapper">
+                <img src={"./logo.png"}></img>
+            </div>
             <UserMenu currentUser={currentUser} updateUser={updateUser} />
         </nav>
     )
