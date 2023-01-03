@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :projects
   resources :resume_projects
-  resources :resumes
-  resources :users
+  resources :resumes, only: [:index]
+  resources :users, only: [:index, :show]
 
   post '/login', to: 'sessions#create'
   post '/signup', to: 'users#create'
