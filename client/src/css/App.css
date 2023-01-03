@@ -1,9 +1,15 @@
 body {
   margin: 0;
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 }
 
 .App {
   text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .App-logo {
@@ -15,17 +21,6 @@ body {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -52,6 +47,8 @@ nav {
   align-items: center;
   width: 100%;
   height: 50px;
+  margin-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 #user-search-wrapper {
@@ -68,7 +65,7 @@ nav {
   align-items: center;
   justify-content: center;
   width: 50px;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 #search-bar-container form {
@@ -84,19 +81,19 @@ nav {
 
 #search-input:focus {
   outline: none;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 #search-input {
   background: none;
   border: none;
   border-bottom: 1px solid;
-  border-bottom-color: rgba(0, 0, 0, .25);
+  border-bottom-color: rgba(0, 0, 0, 0.25);
   text-indent: 5px;
   background-color: rgba(0, 0, 0, 0);
   width: auto;
   min-width: 250px;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 #search-submit {
@@ -106,7 +103,7 @@ nav {
   user-select: none;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
-  transition: all .25s;
+  transition: all 0.25s;
   border-radius: 0px 5px 5px 0px;
   height: 100%;
   right: 0;
@@ -138,7 +135,40 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: all .25s;
+  transition: all 0.25s;
+}
+
+/* Dashboard */
+#dashboard-container {
+  margin: auto;
+  min-width: 750px;
+  max-width: 1000px;
+  min-height: 600px;
+  height: 100vh - 350px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    'b a a'
+    'b a a'
+    '. c c';
+  grid-template-rows: 1fr 1fr 150px;
+  grid-template-columns: 200px 1fr 1fr;
+  flex-direction: column;
+}
+
+#side-bar {
+  grid-area: b;
+  background-color: aqua;
+}
+
+#profile-container {
+  grid-area: a;
+  background-color: bisque;
+}
+
+#social-container {
+  grid-area: c;
+  background-color: blue;
 }
 
 /* Landing Page */

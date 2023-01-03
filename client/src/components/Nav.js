@@ -25,13 +25,13 @@ const Nav = ({ currentUser, updateUser }) => {
                     </NavLink>
                 </div>
                 <div className='navlink-button'>
-                    <NavLink to={'/resume-view'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-                        Resumes
+                    <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
+                        👤 Dashboard
                     </NavLink>
                 </div>
                 <div className='navlink-button'>
-                    <NavLink to={'/profiles'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
-                        👤 Profiles
+                    <NavLink to={'/resume-view'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
+                        Resumè
                     </NavLink>
                 </div>
             </div>
