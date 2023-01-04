@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :projects
   resources :resume_projects
-  resources :resumes, only: [:index, :sort_by_name]
+  resources :resumes, only: [:index, :sort_by_name, :sort_by_title]
   resources :users, only: [:index, :show]
 
   post '/login', to: 'sessions#create'
