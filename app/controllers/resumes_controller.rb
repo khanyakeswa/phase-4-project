@@ -4,4 +4,5 @@ class ResumesController < ApplicationController
         render json: Resume.all
     end
 
+
 end
