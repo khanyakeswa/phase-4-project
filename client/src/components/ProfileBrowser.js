@@ -10,19 +10,47 @@ const ProfileBrowser = () => {
     const [endResultArray, setEndResultArray] = useState(resumeData)
     const [searchValue, setSearchValue] = useState('')
 
-    useEffect(() => {
-        fetch("/resumes")
-          .then((res) => {
+    const sortByName = (e) => {
+        fetch("/sort_by_name")
+            .then((res) => {
             if (res.ok) {
-              res.json()
+                res.json()
                 .then(data => {
                     setResumeData(data)
                     setEndResultArray(data)
                 })
 
             }
-          })
-      }, [])
+            })
+    }
+
+    const sortByProfession = (e) => {
+        fetch("/sort_by_title")
+        .then((res) => {
+        if (res.ok) {
+            res.json()
+            .then(data => {
+                setResumeData(data)
+                setEndResultArray(data)
+            })
+
+        }
+        })
+    }
+
+    useEffect(() => {
+        fetch("/resumes")
+            .then((res) => {
+            if (res.ok) {
+                res.json()
+                .then(data => {
+                    setResumeData(data)
+                    setEndResultArray(data)
+                })
+
+            }
+            })
+        }, [])
 
     function handleSearch(e){
         setSearchValue(e.target.value)
@@ -31,9 +59,13 @@ const ProfileBrowser = () => {
             setEndResultArray(filteredProfiles)
             
         }
-            const renderProfiles = endResultArray.map((eachResumeObj) => {
-                return <ProfileCard key={eachResumeObj.id} resume = {eachResumeObj} />
-            })
+    const renderProfiles = endResultArray.map((eachResumeObj) => {
+        return <ProfileCard key={eachResumeObj.id} resume = {eachResumeObj} />
+    })
+    const [isActive, setActive] = useState(false);
+    const handleShowMenu = (e) => {
+        setActive(!isActive);
+    };
  
     return (
         <div>
@@ -44,15 +76,17 @@ const ProfileBrowser = () => {
                         <i className="SearchBox-icon  material-icons">search</i>
                     </button>
                 </div>
-                <button className="btn btn-4 btn-sep icon-send">
+                <div onClick={handleShowMenu} className="btn btn-4 btn-sep icon-send">
                     sort by
-                    {/* i want a hover over that shows dropdown for filter by profession or skills
-                        then a carosell of keyword search cards will populate below like google image search
-                        maybe I'll use an api
-                        you can click on the card and it will set the search value to that
-                    */}
-                    <span></span>
-                </button>
+                    <div className={isActive ? "active" : "inactive"}>
+                        <div onClick={sortByName} className="menu-link">
+                            <span>name</span>
+                        </div>
+                        <div onClick={sortByProfession} className="menu-link">
+                            <span>profession</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <ul className="cards">
                 {renderProfiles}
