@@ -2,23 +2,10 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
 
-const ProfileBrowser = ({searchResult}) => {
+const ProfileBrowser = ({resumeData}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [resumeData, setResumeData] = useState([])
-
-    useEffect(() => {
-        fetch("/resumes")
-          .then((res) => {
-            if (res.ok) {
-              res.json()
-                .then((fetchedData) => setResumeData(fetchedData));
-            }
-          })
-      }, [])
-
-      console.log(resumeData)
 
     const renderProfiles = resumeData.map((eachResumeObj) => {
         return <ProfileCard key={eachResumeObj.id} resume = {eachResumeObj} />

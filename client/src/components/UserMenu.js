@@ -40,7 +40,7 @@ const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
   function handleSubmit(e) {
     e.preventDefault();
     setSearchText(searchValue)
-    navigate("/profiles");
+    navigate("/search");
   }
 
   return (
