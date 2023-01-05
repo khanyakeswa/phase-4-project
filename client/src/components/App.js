@@ -7,6 +7,7 @@ import LoginPage from './LoginPage';
 import ProfileBrowser from './ProfileBrowser';
 import ProjectBrowser from './ProjectBrowser';
 import ResumeViewer from './ResumeViewer';
+import ProjectViewer from './ProjectViewer';
 import SignupPage from './SignupPage';
 import UserDashboard from './UserDashboard';
 import Nav from './Nav';
@@ -15,6 +16,7 @@ function App() {
 
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState(false)
+  const [projectId, setProjectId] = useState(0)
 
   useEffect(() => {
     fetch("/authorized_user")
@@ -45,6 +47,7 @@ function App() {
         <Route path="/resume-view" element={<ResumeViewer />} />
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser searchResult={searchText} />} />
+        <Route path="/project-view" element={<ProjectViewer projectId={projectId} />} />
       </Routes>
       {/* } */}
     </div>

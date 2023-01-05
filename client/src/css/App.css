@@ -560,6 +560,55 @@ nav {
     width: 50%;
   }
 }
+/* Project Viewer */
+.ProjectViewer {
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.project-content{
+  /* width: 90%; */
+  
+}
+.image-title-wrapper{
+  display: flex;
+  justify-content: left;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.project-collaborator-pic {
+  clip-path: circle(36px at center);
+  width: 80px;
+  height: 80px;
+}
+.project-title{
+  margin-top: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+.project-title-span1{
+  font-size: 16px;
+  font-weight: bold;
+}
+.project-image{
+  width: 90%;
+}
+.share-button{
+  width: 150px;
+  padding: 0px 12.5px;
+  height: 150px;
+  fill:rgba(0, 0, 0, 0.1);
+}
+.share-button path{
+ fill:rgba(0, 0, 0, 0.1);
+}
+
 /* Landing Page */
 
 /* Login Page */
