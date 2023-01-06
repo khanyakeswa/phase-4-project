@@ -10,11 +10,13 @@ import ResumeViewer from './ResumeViewer';
 import SignupPage from './SignupPage';
 import UserDashboard from './UserDashboard';
 import Nav from './Nav';
+import ResumeGenerator from './ResumeGenerator';
 
 function App() {
 
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState(false)
+  const [currentResume, setCurrentResume] = useState(false)
 
   useEffect(() => {
     fetch("/authorized_user")
@@ -34,15 +36,16 @@ function App() {
 
   if (errors) return <h1>{errors}</h1>
   return (
-    <div className='App' style={{backgroundImage: "url(/background-01.jpg)"}}>
-      <Nav setSearchText={setSearchText} currentUser={currentUser} updateUser={updateUser}/>
+    <div className='App' style={{ backgroundImage: "url(/background-01.jpg)" }}>
+      <Nav setSearchText={setSearchText} currentUser={currentUser} updateUser={updateUser} />
       {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
-        <Route path="/dashboard" element={<UserDashboard user={currentUser}/>} />
-        <Route path="/resume-view" element={<ResumeViewer />} />
+        <Route path="/dashboard" element={<UserDashboard user={currentUser} />} />
+        <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResume} setResume={setCurrentResume} />} />
+        <Route path="/resume-view" element={<ResumeViewer resume={currentResume} />} />
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser searchResult={searchText} />} />
       </Routes>

@@ -1,9 +1,16 @@
 class SkillsController < ApplicationController
   def show
-    render json: Skill.where("resume_id = ?", params[:resume_id])
+    render json: Skill.where('resume_id = ?', params[:resume_id])
   end
 
   def create
-    render json: Skill.create!(params.permit(:resume_id, :name, :score))
+    newSkills =
+      params[:skills].map do |skill|
+        Skill.create!(
+               resume_id: 3,
+               name: skill[:name],
+               score: skill[:score],
+             )
+      end
   end
 end

@@ -34,6 +34,11 @@ const Nav = ({ currentUser, updateUser, setSearchText }) => {
                         Resumè
                     </NavLink>
                 </div>
+                <div className='navlink-button'>
+                    <NavLink to={'/profiles'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
+                        Profiles
+                    </NavLink>
+                </div>
             </div>
             <div id="logo-wrapper">
                 <img src={"./logo.png"}></img>

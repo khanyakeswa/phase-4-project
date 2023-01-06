@@ -6,11 +6,11 @@ import SchoolEntry from './SchoolEntry';
 import JobEntry from './JobEntry';
 import ContactEntry from './ContactEntry';
 
-const ResumeGenerator = ({ user, setResume }) => {
+const ResumeGenerator = ({ user, resume, setResume }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const user_id = user.id
-
+    const resume_id = resume.id
 
     const [formData, setFormData] = useState({
         title: '',
@@ -21,6 +21,15 @@ const ResumeGenerator = ({ user, setResume }) => {
         contacts: []
     })
 
+    // const resumeSubmitHandler = (e) => {
+    //     e.preventDefault();
+    //     // const newSkills = skills
+    //     fetch('/submit_resume_skills', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({resume_id, skills})
+    //     })
+    // }
     const resumeSubmitHandler = (e) => {
         e.preventDefault();
         const newResume = { user_id, title, about }
@@ -31,20 +40,25 @@ const ResumeGenerator = ({ user, setResume }) => {
         }).then((res) => {
             res.json().then(resume => {
                 setResume(resume)
+                console.log(resume)
             })
-        })
+        }).then(fetch('submit_resume_skills', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({resume_id, skills})
+        }))
     }
 
     const { title, about, skills, schools, jobs, contacts } = formData
 
-    const [skillInputs, setSkillInputs] = useState({ name: "" })
+    const [skillInputs, setSkillInputs] = useState({ name: "", score: "" })
     const [schoolInputs, setSchoolInputs] = useState({ name: "", degree: "", graduation_date: "" })
     const [jobInputs, setJobInputs] = useState({ company: "", role: "", location: "", description: "", begin_date: "", end_date: "", current: false })
     const [contactInputs, setContactInputs] = useState({ platform: "", url: "" })
 
     const addSkillHandler = () => {
         setFormData({ ...formData, skills: [...skills, skillInputs] })
-        setSkillInputs({ ...skillInputs, name: "" })
+        setSkillInputs({ name: "", score: ""})
     }
     const addSchoolHandler = () => {
         setFormData({ ...formData, schools: [...schools, schoolInputs] })
@@ -115,8 +129,10 @@ const ResumeGenerator = ({ user, setResume }) => {
                     </div>
                     <div className='inputs-container'>
                         <h2>Add Skill</h2>
-                        <label htmlFor='skill-input'>Skill:</label>
-                        <input onChange={skillInputHandler} type="text" className='formTextInput' id='skill-input' name="name" value={skillInputs.name}  ></input>
+                        <label htmlFor='skill-name-input'>Skill:</label>
+                        <input onChange={skillInputHandler} type="text" className='formTextInput' id='skill-name-input' name="name" value={skillInputs.name}  ></input><br/>
+                        <label htmlFor='skill-score-input'>Proficiency:</label>
+                        <input onChange={skillInputHandler} type="number" className='formTextInput' id='skill-score-input' name="score" value={skillInputs.score}  ></input>
                         <div onClick={addSkillHandler} className='button-2'>
                             <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path className="b" d="m35.28,22.58h-7.86v-7.86c0-1.34-1.08-2.42-2.42-2.42s-2.42,1.08-2.42,2.42v7.86h-7.86c-1.34,0-2.42,1.08-2.42,2.42s1.08,2.42,2.42,2.42h7.86v7.86c0,1.34,1.08,2.42,2.42,2.42s2.42-1.08,2.42-2.42v-7.86h7.86c1.34,0,2.42-1.08,2.42-2.42s-1.09-2.42-2.42-2.42Z" /><path className="b" d="m25,0C11.21,0,0,11.21,0,25s11.21,25,25,25,25-11.21,25-25S38.79,0,25,0Zm0,45.17c-11.12,0-20.17-9.04-20.17-20.17S13.88,4.83,25,4.83s20.17,9.05,20.17,20.17-9.05,20.17-20.17,20.17h0Z" /></svg>
                         </div>
