@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#delete' 
   get '/authorized_user', to: 'users#show'
   patch 'update-user', to: 'users#update'
+  delete 'destroy-user', to: 'users#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

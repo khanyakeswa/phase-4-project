@@ -14,7 +14,13 @@ class UsersController < ApplicationController
     end
 
     def update
-        render json: current_user.update(user_params), status: :accepted
+        current_user.update(user_params)
+        render json: current_user, status: :accepted
+    end
+
+    def destroy
+        current_user.destroy
+        head :no_content
     end
 
     private
