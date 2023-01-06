@@ -11,8 +11,7 @@ import SignupPage from './SignupPage';
 import UserDashboard from './UserDashboard';
 import Nav from './Nav';
 import SearchPage from './SearchPage';
-import ProfileViewer from './ProfileViewer';
-// import ProjectViewer from './ProjectViewer';
+import ViewerContainer from './ViewerContainer';
 
 function App() {
 
@@ -35,6 +34,7 @@ function App() {
   const [resumeData, setResumeData] = useState([])
   const [projectData, setProjectData] = useState([])
   const [userId, setUserId] = useState(0)
+  const [view, setView] = useState(false)
 
   useEffect(() => {
       fetch("/resumes")
@@ -70,6 +70,8 @@ function App() {
       project.collaborators.toLowerCase().includes(searchText.toLowerCase()))
     
 
+      const [loneProject, setLoneProject] = useState({})
+
   
 
   if (errors) return <h1>{errors}</h1>
@@ -86,7 +88,7 @@ function App() {
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser resumeData={resumeData} />} />
         <Route path="/search" element={<SearchPage projects = {filteredProjects} users = {filteredUsers} searchResult = {searchText}/>} />
-        <Route path="/user-page" element={<ProfileViewer/>} />
+        <Route path="/user-page" element={<ViewerContainer  view = {view} setView = {setView} projects = {projectData} user = {filteredUsers}/>} />
       </Routes>
       {/* } */}
     </div>

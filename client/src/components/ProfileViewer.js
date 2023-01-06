@@ -4,6 +4,7 @@ import { useNavigate, useLocation, Form } from 'react-router-dom';
 const ProfileViewer = () => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [userInfo, setUserInfo] = useState([]);
 
     return (
         <div>

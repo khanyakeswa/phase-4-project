@@ -13,9 +13,13 @@ class UsersController < ApplicationController
         render json: User.create!(user_params), status: :created
     end
 
+    def update
+        render json: current_user.update(user_params), status: :accepted
+    end
+
     private
 
     def user_params
-        params.permit(:name, :password, :username, :email)
+        params.permit(:name, :password, :username, :email, :about, :image_url)
     end
 end
