@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  # include ActionController::Cookies
+  include ActionController::Cookies
 
   before_action :authorized_user
 

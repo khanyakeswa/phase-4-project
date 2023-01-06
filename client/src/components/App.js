@@ -10,6 +10,7 @@ import ResumeViewer from './ResumeViewer';
 import ProjectViewer from './ProjectViewer';
 import SignupPage from './SignupPage';
 import UserDashboard from './UserDashboard';
+import UpdateUserInfo from './UpdateUserInfo';
 import Nav from './Nav';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
         <Route path="/dashboard" element={<UserDashboard user={currentUser}/>} />
+        <Route path="/update-profile" element={<UpdateUserInfo user={currentUser} updateUser={updateUser}/>} />
         <Route path="/resume-view" element={<ResumeViewer />} />
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser searchResult={searchText} />} />
