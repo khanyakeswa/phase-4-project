@@ -6,9 +6,6 @@ class CreateResumes < ActiveRecord::Migration[6.1]
       t.string :about
       t.string :user_image
       t.string :user_logo
-      t.string :education
-      t.string :skills
-      t.string :experience
 
       t.timestamps
     end

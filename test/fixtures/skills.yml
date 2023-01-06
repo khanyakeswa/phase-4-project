@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resume_id: 1
+  name: MyString
+  score: 1
+
+two:
+  resume_id: 1
+  name: MyString
+  score: 1

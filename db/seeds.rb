@@ -37,9 +37,9 @@ r1 = Resume.create(
     about: "Nathan is adept and career driven in Backend Design. His ability to effectively communicate and in technical documentation is due to his background in the Pharmaceutical Industry, where he worked with large collaborative teams, achieving organizational goals for patients, nurses and doctors’ needs.",
     user_image: "https://avatars.githubusercontent.com/u/111101890?v=4",
     user_logo: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
-    education: "Flatiron School",
-    skills: "Python | MongoDB",
-    experience: "Database management -- primarily with Java & AWS"
+    # education: "Flatiron School",
+    # skills: "Python | MongoDB",
+    # experience: "Database management -- primarily with Java & AWS"
 )
 r2 = Resume.create(
     user_id: u2.id,
@@ -47,9 +47,9 @@ r2 = Resume.create(
     about: "Ex Wheelchair Agent was my first ever full-time job. While some may argue that it's just grunt work and pushing people around in chairs, I developed many skills working here that I will take to future positions.",
     user_image: "https://ca.slack-edge.com/T02MD9XTF-U043PEC6J4W-9406b0b3d620-512",
     user_logo: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
-    education: "Flatiron School",
-    skills: "React.js | Ruby on Rails",
-    experience: "Full-Stack Development with a React frontend and a Rails backend"
+    # education: "Flatiron School",
+    # skills: "React.js | Ruby on Rails",
+    # experience: "Full-Stack Development with a React frontend and a Rails backend"
 )
 r3 = Resume.create(
     user_id: u3.id,
@@ -57,9 +57,9 @@ r3 = Resume.create(
     about: "I'm an aspiring Software Engineer that values creating impactful, resonant human experiences. I was born in the Happy Valley, PA, grew up in Johannesburg, South Africa, and finished high school in the suburban Philadelphia area. Design as an influence has been a driving presence in my career, and I hope to carry that intent forward into future engineering roles. A unique aspect of myself is my ability to empathize with one's thoughts and ambitions, and pursue solutions in kind. I'm excited to utilize my proficiency in human factors and product design to bridge the gaps between a team and the people it seeks to serve.",
     user_image: "https://media.licdn.com/dms/image/C5603AQGK91aMiW1wAw/profile-displayphoto-shrink_400_400/0/1614794314189?e=1677715200&v=beta&t=durJZXKIsqqnFkDr2ThqRhe3ErtZtUNdicZ3Uim0njY",
     user_logo: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg",
-    education: "Flatiron School",
-    skills: "React.js | UX Design",
-    experience: "Product Designer turned Software Developer -- Branding and Marketing"
+    # education: "Flatiron School",
+    # skills: "React.js | UX Design",
+    # experience: "Product Designer turned Software Developer -- Branding and Marketing"
 )
 puts "🌱 Seeding projects..."
 p1 = Project.create(
@@ -86,8 +86,8 @@ p3 = Project.create(
 
 puts "🌱 Adding resumes to projects..."
 
-rp1 = ResumeProject.create(resume_id: r1.id, project_id: p1.id, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
-rp2 = ResumeProject.create(resume_id: r3.id, project_id: p3.id, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
+# rp1 = ResumeProject.create(resume_id: r1.id, project_id: p1.id, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
+# rp2 = ResumeProject.create(resume_id: r3.id, project_id: p3.id, project_image: "https://i.kym-cdn.com/entries/icons/original/000/023/397/C-658VsXoAo3ovC.jpg")
 
 puts "🌱 Done seeding!"
 
