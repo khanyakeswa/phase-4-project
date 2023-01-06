@@ -18,6 +18,10 @@ class UsersController < ApplicationController
         current_user.update(user_params)
         render json: current_user
     end
+    def destroy
+        current_user.destroy
+        head :no_content
+    end
 
     private
 

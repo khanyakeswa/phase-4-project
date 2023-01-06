@@ -3,8 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
   const navigate = useNavigate();
-  const userImg =
-    "https://media.licdn.com/dms/image/C5603AQGK91aMiW1wAw/profile-displayphoto-shrink_400_400/0/1614794314189?e=1677715200&v=beta&t=durJZXKIsqqnFkDr2ThqRhe3ErtZtUNdicZ3Uim0njY";
+  const userImg = currentUser.image_url
 
   const logoutHandler = () => {
     fetch(`/logout`, {
@@ -23,6 +22,9 @@ const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
 
   const menuLinkHandler = () => {
     navigate("/dashboard");
+  };
+  const toSettings = () => {
+    navigate("/update-profile");
   };
 
   //toggle dropdownmenu for profile picture click
@@ -59,11 +61,12 @@ const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
           {currentUser ? (
             <img className="profile-pic-1" alt="headshot" src={userImg}></img>
           ) : (
-            <img
-              className="profile-pic-1"
-              alt="headshot"
-              src="https://thenounproject.com/api/private/icons/1594259/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABjrc_mLVvesnKB_dIt_bqa3nHP03RRBj1IR1IGfHBz7fUkFnJzL9G9r_wWbmH_JjrvYDWSkgLdQfp3aFu1OUIUYP2diA%3D%3D"
-            ></img>
+            <h1>👤</h1>
+            // <img
+            //   className="profile-pic-1"
+            //   alt="headshot"
+            //   src="https://thenounproject.com/api/private/icons/1594259/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABjrc_mLVvesnKB_dIt_bqa3nHP03RRBj1IR1IGfHBz7fUkFnJzL9G9r_wWbmH_JjrvYDWSkgLdQfp3aFu1OUIUYP2diA%3D%3D"
+            // ></img>
           )}
           <svg
             className="notification"
@@ -133,7 +136,7 @@ const UserMenu = ({ currentUser, updateUser, setSearchText }) => {
                 <path d="m496.96 419.96v-0.003906c-12.629-9.7227-20.043-24.742-20.09-40.68v-34.336c-30.641-1.2773-59.258-15.637-78.594-39.441-19.336-23.801-27.527-54.758-22.496-85.008 5.0273-30.25 22.797-56.887 48.793-73.152-28.328-26.195-65.621-40.531-104.2-40.062-40.152 0.95703-78.348 17.531-106.47 46.203-28.129 28.668-43.969 67.172-44.156 107.34v118.46c-0.046876 15.938-7.4648 30.953-20.086 40.68-15.855 12.219-25.172 31.086-25.23 51.102 0.003907 5.0391 2.0117 9.8711 5.5742 13.438 3.5625 3.5625 8.3945 5.5664 13.434 5.5703h359.74c5.0391-0.003906 9.8711-2.0078 13.438-5.5703 3.5625-3.5625 5.5703-8.3945 5.5742-13.438-0.058594-20.016-9.375-38.879-25.23-51.098z" />
               </svg>
             </div>
-            <div className="menu-link">
+            <div onClick={toSettings} className="menu-link">
               <span>Settings</span>
             </div>
             <button className="button-1" onClick={logoutHandler}>

@@ -42,6 +42,15 @@ console.log(formData)
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  const handleDeteAccount = (e) => {
+    if (window.confirm("Are you sure you want to delete your account? This is permanent") == true) {
+      fetch("destroy-user", {
+          method: 'DELETE'
+      })
+      navigate("/login");
+      window.location.reload(false);
+    }
+  }
 
   return (
     <div className="ProjectViewer">
@@ -84,7 +93,11 @@ console.log(formData)
                 <br></br>
 
         <button className="input-field" type="submit">Save</button>
+        <br></br>
+        <h2>or</h2>
+        <br></br>
       </form>
+      <button onClick={handleDeteAccount} className="input-field" type="submit">Delete account</button>
     </div>
   );
 }

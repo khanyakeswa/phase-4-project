@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   patch '/update_user', to: 'users#update'
   post '/submit_resume', to: 'resumes#create'
   get '/user_resumes', to: 'resumes#user_index'
+  delete 'destroy-user', to: 'users#destroy'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
