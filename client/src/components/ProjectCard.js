@@ -3,18 +3,18 @@ import React, { useState } from "react";
 function ProjectCard({project}) {
   
   return (
-    <li className="cards__item">
+    <div className="cards_item">
       <div className="card">
         <img
           src={project.project_video}
           alt="profile picture"
-          className="card__image"
+          className="card_image"
         />
-        <div className="card__content">
-          <div className="card__title">{project.name}</div>
+        <div className="card_content">
+          <div className="card_title">{project.name}</div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 

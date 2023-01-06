@@ -69,7 +69,6 @@ const ProfileBrowser = () => {
  
     return (
         <div>
-            <div> 
                 <div className="SearchBox">
                     <input onChange={handleSearch} value={searchValue} type="text" className="SearchBox-input" placeholder="name, username or skills" />
                     <button className="SearchBox-button">
@@ -85,7 +84,6 @@ const ProfileBrowser = () => {
                         <div onClick={sortByProfession} className="menu-link">
                             <span>profession</span>
                         </div>
-                    </div>
                 </div>
             </div>
             <ul className="cards">
