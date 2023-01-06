@@ -19,11 +19,11 @@ const Nav = ({ currentUser, updateUser, setSearchText }) => {
                             Log In
                         </NavLink>
                     </div>}
-                <div className='navlink-button'>
+                {/* <div className='navlink-button'>
                     <NavLink to={'/projects'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
                         Browse Projects
                     </NavLink>
-                </div>
+                </div> */}
                 <div className='navlink-button'>
                     <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
                         👤 Dashboard

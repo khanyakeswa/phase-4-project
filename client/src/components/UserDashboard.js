@@ -45,7 +45,7 @@ const UserDashboard = ({ user, setResume }) => {
             </div>
             <div id='profile-container'>
                 <div id='headshot-img-wrapper'>
-                    <img id='headshot-img' src='/images/headshot.png' />
+                    <img className='project-collaborator-pic' src={user.image_url} />
                 </div>
                 <div id='title-wrapper'>
                     <span id='title-header'>{user.name}</span>

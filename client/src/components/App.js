@@ -55,10 +55,10 @@ function App() {
 
     const updateUser = (user) => setCurrentUser(user)
   const [searchText, setSearchText] = useState('')
-  console.log(searchText)
 
     const filteredUsers = resumeData.filter(resume =>
-      resume.user.name.toLowerCase().includes(searchText.toLowerCase()))
+      resume.user.name.toLowerCase().includes(searchText.toLowerCase())
+      && resume.user.username.toLowerCase().includes(searchText.toLowerCase()))
 
       useEffect(() => {
         fetch("/projects")
@@ -85,14 +85,14 @@ function App() {
       <Nav setSearchText={setSearchText} currentUser={currentUser} updateUser={updateUser} />
       {/* {currentUser ? <LoginPage error={'Please Login'} updateUser={updateUser} /> : */}
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        {/* <Route path="/" element={<LandingPage />} /> */}
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
         <Route path="/update-profile" element={<UpdateUserInfo user={currentUser} updateUser={updateUser}/>} />
         <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResume}/>} />
-        <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResume} setResume={setCurrentResume} />} />
+        <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResume} setResume={setCurrentResume} projectData={projectData}/>} />
         <Route path="/resume-view" element={<ResumeViewer resume={currentResume} />} />
-        <Route path="/projects" element={<ProjectBrowser />} />
+        <Route path="/" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser resumeData={resumeData} searchResult={searchText} />} />
         <Route path="/search" element={<SearchPage projects = {filteredProjects} users = {filteredUsers} searchResult = {searchText}/>} />
         <Route path="/user-page" element={<ViewerContainer  view = {view} setView = {setView} projects = {projectData} user = {filteredUsers}/>} />
