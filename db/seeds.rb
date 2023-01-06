@@ -73,14 +73,14 @@ p2 = Project.create(
     name: "Quest Apparel",
     collaborators: "Khanya Keswa",
     project_data: "Brand development for Quest Apparel",
-    project_video: "https://www.behance.net/gallery/54904301/Quest-Apparel",
+    project_video: "https://media.tenor.com/nFi55tsrAcoAAAAC/undertale.gif",
     project_link: "https://www.behance.net/gallery/54904301/Quest-Apparel"
 )
 p3 = Project.create(
     name: "phase-4-project",
     collaborators: "Jaquan Banks, Nathan Foss, Khanya Keswa",
     project_data: "Resume and project deployment/hosting website, allowing visitors to either browse other projects and professionals or create own profile",
-    project_video: "https://github.com/khanyakeswa/phase-4-project",
+    project_video: "https://media0.giphy.com/media/S2Mvx3WfRD1u9lruEP/giphy.gif",
     project_link: "https://github.com/khanyakeswa/phase-4-project"
 )
 
