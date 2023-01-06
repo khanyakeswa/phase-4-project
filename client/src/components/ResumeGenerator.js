@@ -5,8 +5,9 @@ import SkillEntry from './SkillEntry';
 import SchoolEntry from './SchoolEntry';
 import JobEntry from './JobEntry';
 import ContactEntry from './ContactEntry';
+import ProjectEntry from './ProjectEntry';
 
-const ResumeGenerator = ({ user, resume, setResume }) => {
+const ResumeGenerator = ({ user, resume, setResume, projectData}) => {
     const navigate = useNavigate();
     const location = useLocation();
     const user_id = user.id
@@ -18,7 +19,8 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
         skills: [],
         schools: [],
         jobs: [],
-        contacts: []
+        contacts: [],
+        projects: []
     })
 
     // const resumeSubmitHandler = (e) => {
@@ -32,7 +34,7 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
     // }
     const resumeSubmitHandler = (e) => {
         e.preventDefault();
-        const newResume = { user_id, title, about, skills, schools, jobs, contacts }
+        const newResume = { user_id, title, about, skills, schools, jobs, contacts, projects }
         fetch('/submit_resume', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -40,9 +42,13 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
         }).then((res) => {
             res.json().then(resume => {
                 setResume(resume)
-                console.log(resume)
             })
-        })
+        }).then(fetch('/add_project', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newResume.projects)
+
+        }))
         // .then(fetch('submit_resume_skills', {
         //     method: 'POST',
         //     headers: { 'Content-Type': 'application/json' },
@@ -50,12 +56,21 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
         // }))
     }
 
-    const { title, about, skills, schools, jobs, contacts } = formData
+    const [selectedProjects, setSelectedProjects] = useState({
+        name: "",
+        collaborators: "",
+        project_video: "",
+        project_data: "",
+        project_link: ""
+    })
+
+    const { title, about, skills, schools, jobs, contacts, projects } = formData
 
     const [skillInputs, setSkillInputs] = useState({ name: "", score: "" })
     const [schoolInputs, setSchoolInputs] = useState({ name: "", degree: "", graduation_date: "" })
     const [jobInputs, setJobInputs] = useState({ company: "", role: "", location: "", description: "", begin_date: "", end_date: "", current: false })
     const [contactInputs, setContactInputs] = useState({ platform: "", url: "" })
+    const [projectInputs, setProjectInputs] = useState({ project_image: "" })
 
     const addSkillHandler = () => {
         setFormData({ ...formData, skills: [...skills, skillInputs] })
@@ -72,6 +87,10 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
     const addContactHandler = () => {
         setFormData({ ...formData, contacts: [...contacts, contactInputs] })
         setContactInputs({ platform: "", url: "" })
+    }
+    const addProjectHandler = () => {
+        setFormData({ ...formData, projects: [...projects, selectedProjects] })
+
     }
 
     const changeHandler = (e) => {
@@ -97,6 +116,10 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
         const { name, value } = e.target
         setContactInputs({ ...contactInputs, [name]: value })
     }
+    const projectInputHandler = (e) => {
+        const { name, value } = e.target
+        setProjectInputs({ ...projectInputs, [name]: value })
+    }
 
     const savedSkills = skills.map(skill => (
         <SkillEntry skill={skill} />
@@ -109,6 +132,9 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
     ))
     const savedContacts = contacts.map(contact => (
         <ContactEntry contact={contact} />
+    ))
+    const savedProjects = projectData.map(project => (
+        <ProjectEntry project={project} />
     ))
 
     return (
@@ -180,6 +206,14 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
                             <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path className="b" d="m35.28,22.58h-7.86v-7.86c0-1.34-1.08-2.42-2.42-2.42s-2.42,1.08-2.42,2.42v7.86h-7.86c-1.34,0-2.42,1.08-2.42,2.42s1.08,2.42,2.42,2.42h7.86v7.86c0,1.34,1.08,2.42,2.42,2.42s2.42-1.08,2.42-2.42v-7.86h7.86c1.34,0,2.42-1.08,2.42-2.42s-1.09-2.42-2.42-2.42Z" /><path className="b" d="m25,0C11.21,0,0,11.21,0,25s11.21,25,25,25,25-11.21,25-25S38.79,0,25,0Zm0,45.17c-11.12,0-20.17-9.04-20.17-20.17S13.88,4.83,25,4.83s20.17,9.05,20.17,20.17-9.05,20.17-20.17,20.17h0Z" /></svg>
                         </div>
                     </div>
+                    <div className='inputs-container'>
+                        <h2>Add Personal Projects</h2>
+                        <label htmlFor='contact-platform-input'>Project-Image URL:</label>
+                        <input onChange={projectInputHandler} type="text" className='formTextInput' id='contact-platform-input' name="project_image" value={projectInputs.project_image}  ></input><br />
+                        <div onClick={addProjectHandler} className='button-2'>
+                            <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path className="b" d="m35.28,22.58h-7.86v-7.86c0-1.34-1.08-2.42-2.42-2.42s-2.42,1.08-2.42,2.42v7.86h-7.86c-1.34,0-2.42,1.08-2.42,2.42s1.08,2.42,2.42,2.42h7.86v7.86c0,1.34,1.08,2.42,2.42,2.42s2.42-1.08,2.42-2.42v-7.86h7.86c1.34,0,2.42-1.08,2.42-2.42s-1.09-2.42-2.42-2.42Z" /><path className="b" d="m25,0C11.21,0,0,11.21,0,25s11.21,25,25,25,25-11.21,25-25S38.79,0,25,0Zm0,45.17c-11.12,0-20.17-9.04-20.17-20.17S13.88,4.83,25,4.83s20.17,9.05,20.17,20.17-9.05,20.17-20.17,20.17h0Z" /></svg>
+                        </div>
+                    </div>
                 </div>
             </form>
             <div id='resume-preview'>
@@ -210,6 +244,12 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
                     {savedContacts.length > 0 ? null : <span>No Links Added</span>}
                     <ul>
                         {savedContacts}
+                    </ul>
+                    <br />
+                    <h2>Personal Projects</h2>
+                    {savedProjects.length > 0 ? null : <span>No Links Added</span>}
+                    <ul>
+                        {savedProjects}
                     </ul>
                     <br />
                 </div>
