@@ -6,7 +6,7 @@ one:
   about: MyString
   user_image: MyString
   user_logo: MyString
-  education: MyString
+  # education: MyString
   skills: MyString
   experience: MyString
 
@@ -16,6 +16,6 @@ two:
   about: MyString
   user_image: MyString
   user_logo: MyString
-  education: MyString
+  # education: MyString
   skills: MyString
   experience: MyString

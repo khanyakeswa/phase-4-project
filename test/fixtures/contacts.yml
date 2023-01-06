@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resume_id: 1
+  email: MyString
+  github: MyString
+  website: MyString
+  blog: MyString
+
+two:
+  resume_id: 1
+  email: MyString
+  github: MyString
+  website: MyString
+  blog: MyString

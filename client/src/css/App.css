@@ -48,6 +48,7 @@ input {
 .button-2 {
   height: 35px;
   width: 75px;
+  margin: 10px;
   background-color: rgba(255, 98, 0, 0);
   transition: all 0.25s;
   display: flex;
@@ -69,6 +70,31 @@ input {
   fill: rgba(255, 255, 255, 1);
 }
 
+label {
+  margin-right: 15px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+span, p {
+  font-size: 14px;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 20px;
+  color: rgba(255, 98, 0, 1);
+  margin: 15px 25px 15px 25px
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 15px 0px;
+
+}
+
 /* Nav Bar */
 
 nav {
@@ -80,6 +106,7 @@ nav {
   height: 60px;
   background-color: rgba(255, 255, 255, 0.75);
   margin-bottom: 50px;
+  position: fixed;
 }
 /* user-menu-container */
 .menu-link{
@@ -283,10 +310,11 @@ nav {
 /* Dashboard */
 #dashboard-container {
   margin: auto;
+  margin-top: 125px;
   min-width: 750px;
   max-width: 1000px;
   min-height: 600px;
-  height: 100vh - 350px;
+  height: 75%;
   display: grid;
   grid-gap: 10px;
   grid-template-areas:
@@ -616,3 +644,78 @@ nav {
 /* Landing Page */
 
 /* Login Page */
+
+/* Resume Generator */
+.generator-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: auto;
+  margin-top: 125px;
+  margin-bottom: 50px;
+  min-width: 750px;
+  max-width: 1000px;
+  min-height: 600px;
+  height: auto;
+}
+
+#resume-form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.75);
+  height: 100%;
+  margin-right: 25px;
+}
+
+#resume-preview {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  height: auto;
+}
+
+#inputs-wrapper, #preview-inputs-wrapper {
+  margin: 0px 25px 25px 25px;
+  overflow-y: scroll;
+}
+
+.inputs-container {
+  margin: 25px 0px;
+}
+
+.formTextInput, .formTextareaInput, .formFileInput {
+  margin: 2.5px 0px;
+}
+
+.formTextInput, .formTextareaInput{
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  text-indent: 5px;
+  background-color: rgba(255, 255, 255, .5);
+  transition: all .25s;
+}
+
+.formTextInput {
+  height: 20px;
+}
+
+.formTextareaInput {
+  height: 75px;
+  width: 90%;
+  padding: 12px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.formTextInput:focus, .formTextareaInput:focus {
+  /* outline: rgba(255, 146, 78, 1) solid 2px; */
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
