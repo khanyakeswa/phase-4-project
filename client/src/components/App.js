@@ -7,8 +7,10 @@ import LoginPage from './LoginPage';
 import ProfileBrowser from './ProfileBrowser';
 import ProjectBrowser from './ProjectBrowser';
 import ResumeViewer from './ResumeViewer';
+import ProjectViewer from './ProjectViewer';
 import SignupPage from './SignupPage';
 import UserDashboard from './UserDashboard';
+import UpdateUserInfo from './UpdateUserInfo';
 import Nav from './Nav';
 import ResumeGenerator from './ResumeGenerator';
 
@@ -16,6 +18,7 @@ function App() {
 
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState(false)
+  const [projectId, setProjectId] = useState(0)
   const [currentResume, setCurrentResume] = useState(false)
 
   useEffect(() => {
@@ -43,11 +46,13 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
+        <Route path="/update-profile" element={<UpdateUserInfo user={currentUser} updateUser={updateUser}/>} />
         <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResume}/>} />
         <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResume} setResume={setCurrentResume} />} />
         <Route path="/resume-view" element={<ResumeViewer resume={currentResume} />} />
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser searchResult={searchText} />} />
+        <Route path="/project-view" element={<ProjectViewer projectId={projectId} />} />
       </Routes>
       {/* } */}
     </div>

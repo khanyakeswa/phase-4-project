@@ -56,11 +56,12 @@ class ResumesController < ApplicationController
     end
   end
 
-  private
+    def sort_by_name
+        render json: Resume.all.sort_by {|m| m.user.name.downcase}
+    end
 
-  # def create_skills
-  #     params[:skills].each do |skill|
-  #         Skill.create!(skill[:resume_id, :name, :score])
-  #     end
-  # end
+    def sort_by_title
+        render json: Resume.all.sort_by {|m| m.title.downcase}
+    end
+
 end
