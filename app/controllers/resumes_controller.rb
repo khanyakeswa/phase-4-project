@@ -8,7 +8,8 @@ class ResumesController < ApplicationController
   end
 
   def show
-    render json: Resume.find_by(user_id: session[:user_id]).includes(:skills, :schools, :jobs, :contacts)
+    render json: Resume.find_by(id: params[:id])
+    # render json: Resume.find_by(user_id: session[:user_id]).includes(:skills, :schools, :jobs, :contacts)
   end
 
   def create

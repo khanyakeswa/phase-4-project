@@ -53,7 +53,7 @@ console.log(formData)
   }
 
   return (
-    <div className="ProjectViewer">
+    <div id="update-user-container">
       <h2>Personal Info</h2>
       <form onSubmit={handleSubmit}>
         <p></p>
