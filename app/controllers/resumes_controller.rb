@@ -54,6 +54,13 @@ class ResumesController < ApplicationController
         url: contact[:url],
       )
     end
+    params[:projects].map do |project|
+        ResumeProject.create!(
+            resume_id: newResume[:id],
+            project_id: project.id,
+            project_image: project.project_video
+        )
+    end
   end
 
     def sort_by_name

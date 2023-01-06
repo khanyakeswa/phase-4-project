@@ -10,7 +10,7 @@ u1 = User.create(
     password: "this!is!SPARTA!123",
     email: "nathanfoss.dev@gmail.com",
     about: "Nathan is adept and career driven in Backend Design. His ability to effectively communicate and in technical documentation is due to his background in the Pharmaceutical Industry, where he worked with large collaborative teams, achieving organizational goals for patients, nurses and doctors’ needs.",
-    image_url: nil
+    image_url: "https://avatars.githubusercontent.com/u/111101890?v=4"
 )
 u2 = User.create(
     name: "JaQuan Banks",
@@ -18,7 +18,7 @@ u2 = User.create(
     password: "password",
     email: "JaQuanBanks@gmail.com",
     about: "Wheelchair Passenger Agent was my first ever full-time job. While some may argue that it's just grunt work and pushing people around in chairs, I developed many skills working here that I will take to future positions.",
-    image_url: nil
+    image_url: "https://ca.slack-edge.com/T02MD9XTF-U043PEC6J4W-9406b0b3d620-512"
 )
 u3 = User.create(
     name: "Khanya Keswa",
@@ -26,7 +26,7 @@ u3 = User.create(
     password: "password",
     email: "khanya.keswa@gmail.com",
     about: "I'm an aspiring Software Engineer that values creating impactful, resonant human experiences. I was born in the Happy Valley, PA, grew up in Johannesburg, South Africa, and finished high school in the suburban Philadelphia area. Design as an influence has been a driving presence in my career, and I hope to carry that intent forward into future engineering roles. A unique aspect of myself is my ability to empathize with one's thoughts and ambitions, and pursue solutions in kind. I'm excited to utilize my proficiency in human factors and product design to bridge the gaps between a team and the people it seeks to serve.",
-    image_url: nil
+    image_url: "https://media.licdn.com/dms/image/C5603AQGK91aMiW1wAw/profile-displayphoto-shrink_400_400/0/1614794314189?e=1677715200&v=beta&t=durJZXKIsqqnFkDr2ThqRhe3ErtZtUNdicZ3Uim0njY"
 )
 
 puts "🌱 Seeding resumes..."

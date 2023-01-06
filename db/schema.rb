@@ -89,6 +89,9 @@ ActiveRecord::Schema.define(version: 2023_01_06_004352) do
     t.string "about"
     t.string "user_image"
     t.string "user_logo"
+    t.string "education"
+    t.string "skills"
+    t.string "experience"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_resumes_on_user_id"
