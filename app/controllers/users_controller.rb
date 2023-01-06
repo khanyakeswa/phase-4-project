@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: User.find_by!(id: params[:id]), status: :ok
+        render json: current_user
     end
 
     def create
@@ -14,8 +14,9 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find_by(id: session[:user_id]) 
-        render json: user.update!(user_params), status: :accepted
+        # user = User.find_by(id: session[:user_id]) 
+        current_user.update(user_params)
+        render json: current_user
     end
 
     private
