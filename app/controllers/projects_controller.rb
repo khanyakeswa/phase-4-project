@@ -3,4 +3,8 @@ class ProjectsController < ApplicationController
   def index
     render json: Project.all
   end
+  def sort_by_project_name
+    render json: Project.all.sort_by {|m| m.name.downcase}
+  end
+
 end

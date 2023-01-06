@@ -2,12 +2,6 @@ import React, { useState } from "react";
 
 function ProfileCard({resume}) {
   
-//   const [isBio, setIsBio] = useState(true)
-
-//   function handleClick(){
-//     setIsBio(!isBio)
-//   }
-  
   return (
     <li className="cards__item">
       <div className="card">

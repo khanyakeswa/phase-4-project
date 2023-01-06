@@ -17,7 +17,7 @@ console.log(formData)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUser = {
+    const newUpdateUserInfo = {
       name,
       username,
       email,
@@ -26,7 +26,7 @@ console.log(formData)
     fetch("/update_user", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(newUpdateUserInfo),
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
@@ -48,35 +48,42 @@ console.log(formData)
       <h2>Personal Info</h2>
       <form onSubmit={handleSubmit}>
         <p></p>
-        <input
+        <input 
           placeholder="Update name"
           type="text"
           name="name"
           value={name}
           onChange={changeHandler}
         />
-        <input
+        <br></br>
+        <input className="input-field"
           placeholder="Update username"
           type="text"
           name="username"
           value={username}
           onChange={changeHandler}
         />
-        <input
+                <br></br>
+
+        <input className="input-field"
           placeholder="Update email"
           type="text"
           name="email"
           value={email}
           onChange={changeHandler}
         />
-        <input
+                <br></br>
+
+        <input className="input-field"
           placeholder="Update password"
           type="text"
           name="password"
           value={password}
           onChange={changeHandler}
         />
-        <button type="submit">Save</button>
+                <br></br>
+
+        <button className="input-field" type="submit">Save</button>
       </form>
     </div>
   );

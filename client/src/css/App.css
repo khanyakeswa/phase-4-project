@@ -608,6 +608,10 @@ nav {
 .share-button path{
  fill:rgba(0, 0, 0, 0.1);
 }
+/* update profile */
+.input-field{
+  margin-top: 10px;
+}
 
 /* Landing Page */
 
