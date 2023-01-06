@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
 
-const ProfileBrowser = () => {
+const ProfileBrowser = ({resumeData}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -69,7 +69,6 @@ const ProfileBrowser = () => {
  
     return (
         <div>
-            <div> 
                 <div className="SearchBox">
                     <input onChange={handleSearch} value={searchValue} type="text" className="SearchBox-input" placeholder="name, username or skills" />
                     <button className="SearchBox-button">
@@ -85,7 +84,6 @@ const ProfileBrowser = () => {
                         <div onClick={sortByProfession} className="menu-link">
                             <span>profession</span>
                         </div>
-                    </div>
                 </div>
             </div>
             <ul className="cards">

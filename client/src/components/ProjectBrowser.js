@@ -50,35 +50,26 @@ const ProjectBrowser = () => {
             console.log(eachProjectObj)
             return <ProjectCard key={eachProjectObj.id} project = {eachProjectObj} />
         })
-        const [isActive, setActive] = useState(false);
-        const handleShowMenu = (e) => {
-            setActive(!isActive);
-        };
 
 
     return (
-        <div>
-            <div>
-            <div> 
-                <div className="SearchBox">
-                    <input onChange={handleSearch} value={searchValue} type="text" className="SearchBox-input" placeholder="name, username or skills" />
-                    <button className="SearchBox-button">
-                        <i className="SearchBox-icon  material-icons">search</i>
-                    </button>
-                </div>
-                <div onClick={handleShowMenu} className="btn btn-4 btn-sep icon-send">
-                    sort by
-                    <div className={isActive ? "active" : "inactive"}>
-                        <div onClick={sortByName} className="menu-link">
-                            <span>name</span>
+        <div id='projects-container'>
+            <div id='filters-wrapper'> 
+                <form>
+                    <input onChange={handleSearch} value={searchValue} type="text" id="search-input" placeholder="Names, Usernames or Skills" />
+                    <input type="submit" id="search-submit" value="Search"></input>
+                </form>
+                <div className='sort-cat-wrapper'>
+                    <div className="active">
+                        <div onClick={sortByName} className="sort-button">
+                            <span>Sort by Name</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <ul className="cards">
+            <div id="project-tiles-container">
                 {renderProjects}
-            </ul>
-        </div>
+            </div>
         </div>
     )
 }
