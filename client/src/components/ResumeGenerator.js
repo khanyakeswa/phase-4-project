@@ -32,7 +32,7 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
     // }
     const resumeSubmitHandler = (e) => {
         e.preventDefault();
-        const newResume = { user_id, title, about }
+        const newResume = { user_id, title, about, skills, schools, jobs, contacts }
         fetch('/submit_resume', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -42,11 +42,12 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
                 setResume(resume)
                 console.log(resume)
             })
-        }).then(fetch('submit_resume_skills', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({resume_id, skills})
-        }))
+        })
+        // .then(fetch('submit_resume_skills', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({ skills })
+        // }))
     }
 
     const { title, about, skills, schools, jobs, contacts } = formData
@@ -58,7 +59,7 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
 
     const addSkillHandler = () => {
         setFormData({ ...formData, skills: [...skills, skillInputs] })
-        setSkillInputs({ name: "", score: ""})
+        setSkillInputs({ name: "", score: "" })
     }
     const addSchoolHandler = () => {
         setFormData({ ...formData, schools: [...schools, schoolInputs] })
@@ -130,7 +131,7 @@ const ResumeGenerator = ({ user, resume, setResume }) => {
                     <div className='inputs-container'>
                         <h2>Add Skill</h2>
                         <label htmlFor='skill-name-input'>Skill:</label>
-                        <input onChange={skillInputHandler} type="text" className='formTextInput' id='skill-name-input' name="name" value={skillInputs.name}  ></input><br/>
+                        <input onChange={skillInputHandler} type="text" className='formTextInput' id='skill-name-input' name="name" value={skillInputs.name}  ></input><br />
                         <label htmlFor='skill-score-input'>Proficiency:</label>
                         <input onChange={skillInputHandler} type="number" className='formTextInput' id='skill-score-input' name="score" value={skillInputs.score}  ></input>
                         <div onClick={addSkillHandler} className='button-2'>

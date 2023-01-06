@@ -43,7 +43,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
-        <Route path="/dashboard" element={<UserDashboard user={currentUser} />} />
+        <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResume}/>} />
         <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResume} setResume={setCurrentResume} />} />
         <Route path="/resume-view" element={<ResumeViewer resume={currentResume} />} />
         <Route path="/projects" element={<ProjectBrowser />} />
