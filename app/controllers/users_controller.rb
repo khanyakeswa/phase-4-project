@@ -14,10 +14,10 @@ class UsersController < ApplicationController
     end
 
     def update
-        # user = User.find_by(id: session[:user_id]) 
         current_user.update(user_params)
-        render json: current_user
+        render json: current_user, status: :accepted
     end
+
     def destroy
         current_user.destroy
         head :no_content
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:name, :password, :username, :email)
+        params.permit(:name, :password, :username, :email, :about, :image_url)
     end
 end

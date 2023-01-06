@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
 
-const ProfileBrowser = () => {
+const ProfileBrowser = ({resumeData}) => {
     const navigate = useNavigate();
     const location = useLocation();
 

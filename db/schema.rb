@@ -121,6 +121,8 @@ ActiveRecord::Schema.define(version: 2023_01_04_051145) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "about"
+    t.string "image_url"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
