@@ -44,7 +44,7 @@ const LoginPage = ({updateUser}) => {
     }
 
     return (
-        <div>
+        <div id='login-container'>
             <h1>{location.pathname}</h1>
             <form onSubmit={submitHandler}>
                 <label>

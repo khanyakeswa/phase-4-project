@@ -17,15 +17,14 @@ const UserDashboard = ({ user, setResume }) => {
     }, [])
 
     const viewResumeHandler = (e) => {
+        setResume(e.target.id)
         navigate('/resume-view')
-        // setResume(savedResumes[e.target.id])
-        console.log(savedResumes[e.target.id])
     }
 
     const user_resumes = savedResumes.map((resume) => (
         <div className='resume-tile'>
             <span>Resumè {savedResumes.indexOf(resume) + 1}</span><br />
-            <button onClick={viewResumeHandler} id={savedResumes.indexOf(resume)} className="button-1">View Resumé</button>
+            <button onClick={viewResumeHandler} id={resume.id} className="button-1">View Resumé</button>
         </div>
     ))
 

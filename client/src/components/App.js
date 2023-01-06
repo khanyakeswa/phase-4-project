@@ -21,7 +21,7 @@ function App() {
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState(false)
   const [projectId, setProjectId] = useState(0)
-  const [currentResume, setCurrentResume] = useState(false)
+  const [currentResumeId, setCurrentResumeId] = useState(0)
 
   useEffect(() => {
     fetch("/authorized_user")
@@ -50,8 +50,6 @@ function App() {
           }
         })
     }, [])
-
-    console.log(resumeData)
 
     const updateUser = (user) => setCurrentUser(user)
   const [searchText, setSearchText] = useState('')
@@ -89,9 +87,9 @@ function App() {
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
         <Route path="/update-profile" element={<UpdateUserInfo user={currentUser} updateUser={updateUser}/>} />
-        <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResume}/>} />
-        <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResume} setResume={setCurrentResume} />} />
-        <Route path="/resume-view" element={<ResumeViewer resume={currentResume} />} />
+        <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResumeId}/>} />
+        <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResumeId} setResume={setCurrentResumeId} />} />
+        <Route path="/resume-view" element={<ResumeViewer user={currentUser} resume={currentResumeId} />} />
         <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser resumeData={resumeData} searchResult={searchText} />} />
         <Route path="/search" element={<SearchPage projects = {filteredProjects} users = {filteredUsers} searchResult = {searchText}/>} />
