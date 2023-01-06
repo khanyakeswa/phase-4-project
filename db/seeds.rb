@@ -7,7 +7,7 @@ puts "🌱 Seeding users..."
 u1 = User.create(
     name: "Nathan Foss",
     username: "DosLlamas",
-    password: "this!is!SPARTA!123",
+    password: "password",
     email: "nathanfoss.dev@gmail.com"
 )
 u2 = User.create(

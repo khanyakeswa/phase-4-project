@@ -87,7 +87,7 @@ function ProjectViewer({ userId }) {
         </div>
       </div>
       <div className="projet-content-side-bar">
-        {/* I can have a share button here that copies the url to your dashboard */}
+        {/* I can have a share button here that copies the url to your clipboard */}
       </div>
     </div>
   );
