@@ -68,8 +68,8 @@ const ProfileBrowser = () => {
     };
  
     return (
-        <div>
-                <div className="SearchBox">
+        <div id='profiles-container'>
+                <div id="filters-wrapper">
                     <input onChange={handleSearch} value={searchValue} type="text" className="SearchBox-input" placeholder="name, username or skills" />
                     <button className="SearchBox-button">
                         <i className="SearchBox-icon  material-icons">search</i>

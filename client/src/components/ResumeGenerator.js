@@ -140,7 +140,7 @@ const ResumeGenerator = ({ user, resume, setResume, projectData}) => {
     return (
         <div className="generator-container">
             <form id='resume-form' onSubmit={resumeSubmitHandler}>
-                <input type="submit" value="Generate Résumé"></input>
+                <input className='button-1' type="submit" value="Generate Résumé"></input>
                 <h1>Resume Builder</h1>
                 <div id='inputs-wrapper'>
                     <div className='inputs-container'>

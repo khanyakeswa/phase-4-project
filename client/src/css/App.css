@@ -178,6 +178,8 @@ nav {
   align-items: center;
   width: 75px;
   height: auto;
+  user-select: none;
+  cursor: pointer;
 }
 .profile-pic-1 {
   clip-path: circle(20px at center);
@@ -542,6 +544,7 @@ nav {
     0% 80%,
     0% 20%
   );
+  width: 100%;
 }
 
 .card_image:hover {
@@ -722,7 +725,7 @@ nav {
 }
 
 /* Project Browser */
-#projects-container {
+#projects-container, #profiles-container {
   margin: auto;
   margin-top: 125px;
   min-width: 750px;

@@ -9,21 +9,21 @@ const Nav = ({ currentUser, updateUser, setSearchText }) => {
         <nav>
             <div className="navlink-wrapper">
                 <div className='navlink-button'>
-                    <NavLink to={'/'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
+                    <NavLink to={'/projects'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
                         🏠 Home
                     </NavLink>
                 </div>
-                {currentUser ? null :
+                {/* {currentUser ? null :
                     <div className='navlink-button'>
                         <NavLink to={'/login'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
                             Log In
                         </NavLink>
-                    </div>}
-                {/* <div className='navlink-button'>
+                    </div>} */}
+                <div className='navlink-button'>
                     <NavLink to={'/projects'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
                         Browse Projects
                     </NavLink>
-                </div> */}
+                </div>
                 <div className='navlink-button'>
                     <NavLink to={'/dashboard'} className={({ isActive }) => isActive ? activeNavClass : 'nav'}>
                         👤 Dashboard

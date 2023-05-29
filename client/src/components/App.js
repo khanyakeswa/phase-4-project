@@ -87,10 +87,10 @@ function App() {
         <Route path="/login" element={<LoginPage updateUser={updateUser} />} />
         <Route path="/signup" element={<SignupPage updateUser={updateUser} />} />
         <Route path="/update-profile" element={<UpdateUserInfo user={currentUser} updateUser={updateUser}/>} />
-        <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResume}/>} />
+        <Route path="/dashboard" element={<UserDashboard user={currentUser} setResume={setCurrentResumeId}/>} />
         <Route path="/resume-generator" element={<ResumeGenerator user={currentUser} resume={currentResumeId} setResume={setCurrentResumeId} projectData={projectData}/>} />
-        <Route path="/resume-view" element={<ResumeViewer resume={currentResume} resume={currentResumeId} />} />
-        <Route path="/" element={<ProjectBrowser />} />
+        <Route path="/resume-view" element={<ResumeViewer user={currentUser} resume={currentResumeId} />} />
+        <Route path="/projects" element={<ProjectBrowser />} />
         <Route path="/profiles" element={<ProfileBrowser resumeData={resumeData} searchResult={searchText} />} />
         <Route path="/search" element={<SearchPage projects = {filteredProjects} users = {filteredUsers} searchResult = {searchText}/>} />
         <Route path="/user-page" element={<ViewerContainer  view = {view} setView = {setView} projects = {projectData} user = {filteredUsers}/>} />

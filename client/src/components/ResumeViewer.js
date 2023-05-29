@@ -7,9 +7,12 @@ const ResumeViewer = ({ resume, user }) => {
     const [resumeData, setResumeData] = useState([])
 
     useEffect(() => {
-        fetch(`/resumes/${resume}`)
+        fetch(`/resumes/3`)
             .then(res => res.json())
             .then(data => setResumeData(data))
+        // fetch(`/resumes/${resume}`)
+        //     .then(res => res.json())
+        //     .then(data => setResumeData(data))
     }, [])
 
     // const contactsText = resumeData.contacts.map(contact => (
@@ -41,6 +44,9 @@ const ResumeViewer = ({ resume, user }) => {
                     <h2>Reach Me Here:</h2>
                     {/* {contactsText} */}
                 </div>
+            </div>
+            <div id='resume-body'>
+                
             </div>
         </div>
     )

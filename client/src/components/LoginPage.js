@@ -28,7 +28,7 @@ const LoginPage = ({updateUser}) => {
                 if (res.ok) {
                     res.json().then(user => {
                         updateUser(user)
-                        navigate(`/users/${user.id}`)
+                        navigate(`/dashboard`)
                     })
                 } else {
                     res.json().then(json => setErrors(json.errors))
@@ -45,7 +45,8 @@ const LoginPage = ({updateUser}) => {
 
     return (
         <div id='login-container'>
-            <h1>{location.pathname}</h1>
+            <h1>Welcome to ResuME</h1>
+            <h2>Login:</h2>
             <form onSubmit={submitHandler}>
                 <label>
                     Username
@@ -65,7 +66,7 @@ const LoginPage = ({updateUser}) => {
             <br />
             <h3>or</h3>
             <br />
-            <button onClick={clickHandler}>Signup with ResuME</button>
+            <button onClick={clickHandler} className="button-1">Signup with ResuME</button>
         </div>
     )
 }

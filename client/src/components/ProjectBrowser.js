@@ -47,7 +47,6 @@ const ProjectBrowser = () => {
                 
             }
         const renderProjects = endResultArray.map((eachProjectObj) => {
-            console.log(eachProjectObj)
             return <ProjectCard key={eachProjectObj.id} project = {eachProjectObj} />
         })
 
